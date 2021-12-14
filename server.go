@@ -1,6 +1,7 @@
 package main
 
 import (
+	"flag"
 	"io/ioutil"
 	"net/http"
 )
@@ -17,9 +18,11 @@ var secretsPath = "./certs/secrets.json"
 var certPath = "./certs/butlerBurtonCert.pfx"
 
 func main() {
+	port := flag.String("port", "6666", "set port to run on")
+	flag.Parse()
 	http.HandleFunc("/secrets", secretsHandler)
 	http.HandleFunc("/cert", certHandler)
-	err := http.ListenAndServe(":6666", nil)
+	err := http.ListenAndServe(":"+*port, nil)
 	if err != nil {
 		panic(err)
 	}
