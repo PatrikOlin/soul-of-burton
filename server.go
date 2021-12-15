@@ -36,7 +36,6 @@ func certHandler(w http.ResponseWriter, r *http.Request) {
 	}
 
 	w.Header().Add("content-type", "application/octet-stream")
-	w.WriteHeader(http.StatusOK)
 	w.Write(file)
 }
 
@@ -48,6 +47,5 @@ func secretsHandler(w http.ResponseWriter, r *http.Request) {
 	}
 
 	w.Header().Add("content-type", "application/json")
-	w.WriteHeader(http.StatusOK)
 	w.Write(json)
 }
