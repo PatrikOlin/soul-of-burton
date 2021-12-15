@@ -14,7 +14,7 @@ type Secrets struct {
 	CertPass string `json:"certPass"`
 }
 
-var secretsPath = "./certs/secrets.json"
+var secretsPath = "./certs/private.json"
 var certPath = "./certs/butlerBurtonCert.pfx"
 
 func main() {
